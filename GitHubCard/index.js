@@ -100,7 +100,41 @@ root.appendChild(user);
 //           user, and adding that card to the DOM.
 // */
 
-// const followersArray = [];
+const followersArray = [
+  'tetondan',
+  'dustinmyers',
+  'justsml',
+  'luishrd',
+  'bigknell',
+  'gebhartn',
+  'abarne',
+  'Steverenner1',
+  'primelos',
+];
+
+const baseURL = 'https://api.github.com/users/';
+
+async function getGithubUser(url) {
+  const user = await axios
+    .get(url)
+    .then(res => {
+      console.log(UserCard(res.data));
+      return UserCard(res.data);
+    })
+    .catch(err => console.error(err));
+}
+
+async function getGithubFollowers(followers, url) {
+  const profiles = await followers.map(username => {
+    axios
+      .get(url + username)
+      .then(res => {
+        console.log(UserCard(res.data));
+        if (res.data) return UserCard(res.data);
+      })
+      .catch(err => console.error(err));
+  });
+}
 
 // /* Step 3: Create a function that accepts a single object as its only argument,
 //           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -161,7 +195,6 @@ function UserCard(data) {
   followingCount.textContent = following;
   userBio.textContent = bio;
 
-  console.log(card);
   return card;
 }
 
