@@ -125,7 +125,31 @@ function createElement(type, classes = null, id = null) {
   return element;
 }
 
-function UserCard(data) {}
+function UserCard(data) {
+  // create elements
+  const card = createElement('div', ['card']),
+    profileImg = document.createElement('img'),
+    cardInfo = createElement('div', ['card-info']),
+    name = createElement('h3', ['name']),
+    username = createElement('p', ['username']),
+    location = document.createElement('p'),
+    profile = document.createElement('p'),
+    profileURL = document.createElement('a'),
+    followersCount = document.createElement('p'),
+    followingCount = document.createElement('p'),
+    bio = document.createElement('p');
+
+  // create structure
+  card.append(profileImg, cardInfo);
+  cardInfo.append(name, username, location, profile, followersCount, followingCount, bio);
+  profile.appendChild(profileURL);
+
+  // add content
+
+  return card;
+}
+
+console.log(UserCard({}));
 
 /* List of LS Instructors Github username's:
   tetondan
