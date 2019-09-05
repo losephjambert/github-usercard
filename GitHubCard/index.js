@@ -130,26 +130,35 @@ function UserCard(data) {
   const card = createElement('div', ['card']),
     profileImg = document.createElement('img'),
     cardInfo = createElement('div', ['card-info']),
-    name = createElement('h3', ['name']),
+    cardName = createElement('h3', ['name']),
     username = createElement('p', ['username']),
-    location = document.createElement('p'),
+    userLocation = document.createElement('p'),
     profile = document.createElement('p'),
     profileURL = document.createElement('a'),
     followersCount = document.createElement('p'),
     followingCount = document.createElement('p'),
-    bio = document.createElement('p');
+    userBio = document.createElement('p');
 
   // create structure
   card.append(profileImg, cardInfo);
-  cardInfo.append(name, username, location, profile, followersCount, followingCount, bio);
+  cardInfo.append(cardName, username, userLocation, profile, followersCount, followingCount, userBio);
   profile.appendChild(profileURL);
 
   // add content
+  const { login, avatar_url, html_url, name, location, bio, followers, following } = data;
+  profileImg.src = avatar_url;
+  cardName.textContent = name;
+  username.textContent = login;
+  userLocation.textContent = location;
+  profileURL.href = html_url;
+  followersCount.textContent = followers;
+  followingCount.textContent = following;
+  userBio.textContent = bio;
 
   return card;
 }
 
-console.log(UserCard({}));
+console.log(UserCard(stubbedResponse.data));
 
 /* List of LS Instructors Github username's:
   tetondan
