@@ -85,6 +85,11 @@ const stubbedResponse = {
            create a new component and add it to the DOM as a child of .cards
 */
 
+const root = document.querySelector('.cards');
+const user = UserCard(stubbedResponse.data);
+
+root.appendChild(user);
+
 /* Step 5: Now that you have your own card getting added to the DOM, either
           follow this link in your browser https://api.github.com/users/<Your github name>/followers
           , manually find some other users' github handles, or use the list found
@@ -155,10 +160,9 @@ function UserCard(data) {
   followingCount.textContent = following;
   userBio.textContent = bio;
 
+  console.log(card);
   return card;
 }
-
-console.log(UserCard(stubbedResponse.data));
 
 /* List of LS Instructors Github username's:
   tetondan
