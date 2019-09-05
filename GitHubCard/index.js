@@ -156,6 +156,7 @@ function UserCard(data) {
   username.textContent = login;
   userLocation.textContent = location;
   profileURL.href = html_url;
+  profileURL.textContent = html_url;
   followersCount.textContent = followers;
   followingCount.textContent = following;
   userBio.textContent = bio;
