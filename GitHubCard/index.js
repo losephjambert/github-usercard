@@ -86,9 +86,9 @@ const stubbedResponse = {
 */
 
 const root = document.querySelector('.cards');
-const user = UserCard(stubbedResponse.data);
+// const user = UserCard(stubbedResponse.data);
 
-root.appendChild(user);
+// root.appendChild(user);
 
 // /* Step 5: Now that you have your own card getting added to the DOM, either
 //           follow this link in your browser https://api.github.com/users/<Your github name>/followers
@@ -110,6 +110,7 @@ const followersArray = [
   'abarne',
   'Steverenner1',
   'primelos',
+  'losephjambert',
 ];
 
 const baseURL = 'https://api.github.com/users/';
